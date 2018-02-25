@@ -9,6 +9,7 @@ public class Equipment : Item {
     public EquipmentMeshRegion[] coveredMeshedRegion;
     public int armorModifier;
     public int damageModifier;
+
     public override void Use()
     {
         base.Use();

@@ -19,3 +19,4 @@ MonoBehaviour:
   coveredMeshedRegion: 0100000002000000
   armorModifier: 50
   damageModifier: 0
+  dropChance: 100
