@@ -4,8 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyStats : CharacterStats
 {
-    public float RespawnTimer;
-
+    public int RespawnTimer;
 
     [System.Serializable]
     public class ItemAndDropRate
@@ -15,13 +14,20 @@ public class EnemyStats : CharacterStats
     }
 
     public List<ItemAndDropRate> Drops = new List<ItemAndDropRate>();
+    public delegate void OnDeath(GameObject enemy);
+    public OnDeath onDeath;
     public override void Die()
     {
         base.Die();
         Vector3 deathLocation = gameObject.transform.position;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         DropLoot(deathLocation);
+        if (onDeath != null)
+            onDeath.Invoke(this.gameObject);
     }
+
+    
+
 
     public void DropLoot(Vector3 position)
     {
