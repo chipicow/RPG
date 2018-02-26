@@ -14,19 +14,21 @@ public class EnemyStats : CharacterStats
     }
 
     public List<ItemAndDropRate> Drops = new List<ItemAndDropRate>();
-    public delegate void OnDeath(GameObject enemy);
-    public OnDeath onDeath;
+    public delegate void OnDeath(string prefabName);
+    public event OnDeath onDeath;
+
     public override void Die()
     {
         base.Die();
         Vector3 deathLocation = gameObject.transform.position;
-        gameObject.SetActive(false);
+        onDeath.Invoke(this.gameObject.name);
+        Destroy(gameObject);
         DropLoot(deathLocation);
-        if (onDeath != null)
-            onDeath.Invoke(this.gameObject);
+
+
     }
 
-    
+
 
 
     public void DropLoot(Vector3 position)
