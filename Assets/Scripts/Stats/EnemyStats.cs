@@ -24,8 +24,6 @@ public class EnemyStats : CharacterStats
         onDeath.Invoke(this.gameObject.name);
         Destroy(gameObject);
         DropLoot(deathLocation);
-
-
     }
 
 
