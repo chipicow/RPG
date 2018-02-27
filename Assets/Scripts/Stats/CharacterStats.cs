@@ -3,6 +3,7 @@
 public class CharacterStats : MonoBehaviour {
 
     public int maxHealth = 100;
+    public float range = 0.0f;
     public int currentHealth { get; private set; }
     public Stat damage;
     public Stat armor;

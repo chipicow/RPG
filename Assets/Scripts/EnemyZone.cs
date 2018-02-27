@@ -14,6 +14,7 @@ public class EnemyZone : MonoBehaviour
     }
     #endregion
 
+    public string ZoneDescription;
     public GameObject[] MonstersList;
     public float Radius;
     public Vector3 center;
